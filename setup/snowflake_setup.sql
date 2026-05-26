@@ -17,6 +17,34 @@ CREATE SCHEMA IF NOT EXISTS CRYPTO_PIPELINE.DEV;
 USE DATABASE CRYPTO_PIPELINE;
 USE SCHEMA RAW;
 
+
+
+---------------------------------------------------------
+-- Create tables
+---------------------------------------------------------
+
+-- Raw tables
+CREATE TABLE IF NOT EXISTS CRYPTO_PIPELINE.RAW.COINGECKO_OHLC (
+    coin_id      VARCHAR,
+    price_date   DATE,
+    open_price   FLOAT,
+    high_price   FLOAT,
+    low_price    FLOAT,
+    close_price  FLOAT,
+    created_at   TIMESTAMP_TZ
+);
+
+CREATE TABLE IF NOT EXISTS CRYPTO_PIPELINE.RAW.COINGECKO_MARKET_CHART (
+    coin_id          VARCHAR,
+    price_date       DATE,
+    price_usd        FLOAT,
+    market_cap_usd   FLOAT,
+    total_volume_usd FLOAT,
+    created_at       TIMESTAMP_TZ
+);
+
+
+
 -----------------------------------------------------------------
 -- Role + user for Python ingestion
 -----------------------------------------------------------------
